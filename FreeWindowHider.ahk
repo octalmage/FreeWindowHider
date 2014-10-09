@@ -1,4 +1,3 @@
-; <COMPILER: v1.0.47.1>
 #notrayicon
 #singleinstance force
 gosub iniread
@@ -125,11 +124,11 @@ Winclose , %this_title%
 return
 
 about:
-msgbox Written By Octal Mage, please vist www.blueshirtstudio.com
+msgbox Written By Jason Stallings, please vist jason.stallin.gs
 return
 
 help:
-run http://blueshirtstudio.com/index.php/Free_Window_Hider:Help
+run https://github.com/octalmage/FreeWindowHider
 return
 
 unhide:
