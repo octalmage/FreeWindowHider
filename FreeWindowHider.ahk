@@ -102,13 +102,13 @@ Loop, %id%
 
 Loop, Parse, hide_title , `n
 {
-StringGetPos, found, this_title, %A_LoopField%
-if !found
-{
-WinHide , %this_title%
-value=%value%%this_title%+||+
-Iniwrite, %value%, settings.ini, Settings, hidden
-}
+	StringGetPos, found, this_title, %A_LoopField%
+	if !found
+	{
+		WinHide , %this_title%
+		value=%value%%this_title%+||+
+		Iniwrite, %value%, settings.ini, Settings, hidden
+	}
 }
 
 Loop, Parse, close_title , `n
