@@ -85,7 +85,7 @@ return
 action:
 if tog=0
 {
-exitapp
+	exitapp
 }
 Hotkey, %hide% , on
 Hotkey,%unhide%  , on
@@ -100,25 +100,25 @@ Loop, %id%
    StringTrimRight, this_id, id%a_index%, 0
    WinGetTitle, this_title, ahk_id %this_id%
 
-Loop, Parse, hide_title , `n
-{
-	StringGetPos, found, this_title, %A_LoopField%
-	if !found
-	{
-		WinHide , %this_title%
-		value=%value%%this_title%+||+
-		Iniwrite, %value%, settings.ini, Settings, hidden
+    Loop, Parse, hide_title , `n
+    {
+	    StringGetPos, found, this_title, %A_LoopField%
+	    if !found
+	    {
+			WinHide , %this_title%
+			value=%value%%this_title%+||+
+			Iniwrite, %value%, settings.ini, Settings, hidden
+	    }
+    }
+        
+    Loop, Parse, close_title , `n
+    {
+	    StringGetPos, found, this_title, %A_LoopField%
+	    if !found
+	    {
+			Winclose , %this_title%
+	    }
 	}
-}
-
-Loop, Parse, close_title , `n
-{
-StringGetPos, found, this_title, %A_LoopField%
-if !found
-{
-Winclose , %this_title%
-}
-}
 
 }
 return
@@ -135,7 +135,7 @@ unhide:
 IniRead, value, settings.ini, Settings, hidden , %a_space%
 Loop, Parse, value , +||+
 {
-WinShow,%A_LoopField%
+	WinShow,%A_LoopField%
 }
 Iniwrite, %a_space%, settings.ini, Settings, hidden
 return
